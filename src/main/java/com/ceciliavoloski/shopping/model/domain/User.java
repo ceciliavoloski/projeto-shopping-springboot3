@@ -1,10 +1,15 @@
-package com.ceciliavoloski.shopping.entities;
+package com.ceciliavoloski.shopping.model.domain;
+
+import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.util.Objects;
 
-
+@Entity
+@Table(name = "tb_user")
 public class User implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private String email;
@@ -67,10 +72,5 @@ public class User implements Serializable {
         if (this == o) return true;
         if (!(o instanceof User user)) return false;
         return id.equals(user.id);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id);
     }
 }
